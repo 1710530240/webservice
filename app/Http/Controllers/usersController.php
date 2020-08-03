@@ -130,12 +130,12 @@ class usersController extends Controller
     {
         if (isset($_SESSION['userdata']))
             return response('Anda tidak diperbolehkan mengakses ini, silahkan logout dulu', 401);
-        if (!isset($request->username) || !isset($request->email))
+        if (!isset($request->user))
             return response(['message' => 'Username atau Email tidak dimasukkan']);
         if (!isset($request->password))
             return response(['message' => 'Tidak ada password yang dimasukkan']);
 
-        $res = DB::table('users')->where('username', $request->username)->orWhere('email', $request->email)->get();
+        $res = DB::table('users')->where('username', $request->user)->orWhere('email', $request->user)->get();
 
         if (count($res) == 0)
             return response(['message' => 'User tidak ditemukan']);
