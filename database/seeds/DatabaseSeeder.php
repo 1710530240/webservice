@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -25,7 +26,7 @@ class DatabaseSeeder extends Seeder
             $users[] = [
                 'username' => 'USR ' . $i,
                 'email' => 'usr' . $i . '@gmail.com',
-                'password' => 'passusr' . $i,
+                'password' => Hash::make( 'passusr' . $i),
                 'kelamin' => $kelamin[rand(0,1)],
                 'alamat' => $faker->address(50),
                 'nohp' => $faker->phoneNumber(12),
