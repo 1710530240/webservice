@@ -22,9 +22,9 @@ class DatabaseSeeder extends Seeder
         $faker = Faker::create('id_ID');
         $kategori = array('Hutan', 'Gunung', 'Lainnya', 'Pantai', 'Air terjun', 'Bukit');
 
-        for ($i=0; $i < 5 ; $i++) {
+        for ($i=1; $i <= 5 ; $i++) {
             $users[] = [
-                'username' => 'USR ' . $i,
+                'username' => 'USR-' . $i,
                 'email' => 'usr' . $i . '@gmail.com',
                 'password' => Hash::make( 'passusr' . $i),
                 'kelamin' => $kelamin[rand(0,1)],
@@ -34,7 +34,7 @@ class DatabaseSeeder extends Seeder
             ];
         }
 
-        for ($i=0; $i < 15; $i++) {
+        for ($i=1; $i <= 15; $i++) {
            $wisata[] = [
                'id' => Str::random(5),
                'nama' => 'pariwisata ' . $i,
@@ -46,7 +46,7 @@ class DatabaseSeeder extends Seeder
 
 
 
-        for ($i=0 ; $i < 25 ; $i++ ) {
+        for ($i=1 ; $i <= 25 ; $i++ ) {
             $ulasan[] = [
                 'id' => Str::random(5),
                 'wisata' => $wisata[rand(0, 14)]['id'],
