@@ -17,5 +17,5 @@ use Illuminate\Support\Facades\Route;
 if(!session_id()) session_start();
 
 Route::resources(['user' => 'usersController', 'ulasan' => 'ulasanController', 'wisata' =>'wisataController']);
-Route::get('user/login', ['uses' => 'usersController@login']);
+Route::post('user/login', ['uses' => 'usersController@login']);
 Route::get('user/logout', ['uses' => 'usersController@logout']);
