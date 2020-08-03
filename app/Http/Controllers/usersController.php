@@ -142,7 +142,7 @@ class usersController extends Controller
         elseif (count($res) > 1)
             return response(['message' => 'Error, cek lagi email atau username yang terdaftar']);
 
-        if (Hash::check($request->password, $res[0]['password'])) {
+        if (Hash::check($request->password, $res[0]->password)) {
             $_SESSION['userdata'] = $res[0];
             return response(['message' => 'Login suksess']);
         }
